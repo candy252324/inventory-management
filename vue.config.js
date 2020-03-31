@@ -1,13 +1,13 @@
 const path = require('path')
-module.exports={
-    // lintOnSave: false,
+module.exports = {
+    publicPath: './',
     devServer: {
         disableHostCheck: true,
         proxy: {
             '/': {
-              target: 'http://localhost:3000/',
-              ws: false,
-              changeOrigin: true
+                target: process.env.VUE_APP_BASE_API,
+                ws: false,
+                changeOrigin: true
             },
         }
     }
