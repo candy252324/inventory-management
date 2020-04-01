@@ -1,14 +1,12 @@
 import axios from 'axios'
 
 const service = axios.create({
-  baseURL: process.env.BASE_URL,
+  baseURL: process.env.VUE_APP_URL,
   timeout: 30000,
 })
 
 service.interceptors.request.use(config => {
-  //   if (store.getters.token) {
-  //     config.headers['X-Token'] = getToken()
-  //   }
+  // config.headers['content-type'] = 'application/json'
   return config
 }, error => {
   Promise.reject(error)
