@@ -5,8 +5,7 @@
         <input
           v-model="item.name"
           type="text"
-          placeholder="名称" 
-          class="foo"
+          placeholder="名称"
         >
         <input v-model="item.price" type="text" placeholder="价格">
         <button @click="cancel(index)">
@@ -48,7 +47,7 @@ export default {
     }
   },
   created(){
-     this.getList(true)
+    this.getList(true)
   },
   methods:{
     getList(isFirst){
@@ -88,10 +87,10 @@ export default {
       })
     },
     del(item){
-       delGoods({id:item.id}).then(res=>{
-          if(!res.data.code){
-            this.getList()
-          }
+      delGoods({id:item.id}).then(res=>{
+        if(!res.data.code){
+          this.getList()
+        }
       })
     },
     validVal(name,price){
