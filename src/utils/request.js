@@ -18,7 +18,7 @@ service.interceptors.response.use(
       response.data.message && alert(response.data.message)
     }
     // var method = response.config.method.toLowerCase();
-    return response;
+    return response
   },
   error => {
     return Promise.reject(error)

@@ -7,12 +7,12 @@
 <script>
 import List from './components/List'
 export default {
-  name: "App",
-  components: {List},
+  name: 'App',
+  components: { List },
   mounted(){   
 
   },
-};
+}
 </script>
 
 <style>

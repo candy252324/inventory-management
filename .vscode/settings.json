@@ -5,7 +5,9 @@
         "*.wxss": "css"
     },
     "eslint.enable": true,
-    "editor.formatOnSave": true,
+    // 如果将ESLint用作默认格式化程序，则应在打开editor.formatOnSave时将其关闭editor.codeActionsOnSave。
+    // 否则，您的文件将被修复两次，这是不必要的
+    "editor.formatOnSave": false,
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },

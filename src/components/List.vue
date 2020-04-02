@@ -34,27 +34,27 @@
 </template>
 
 <script>
-import {getGoodsList,addGoods,delGoods,updateGoods} from '@/api/goods'
+import { getGoodsList,addGoods,delGoods,updateGoods } from '@/api/goods'
 export default {
-  name: "HelloWorld",
+  name: 'HelloWorld',
   data() {
     return {
-      newItem:{
-        name:'',
-        price:''
+      newItem: {
+        name: '',
+        price: ''
       },
-      list:[]
+      list: []
     }
   },
   created(){
     this.getList(true)
   },
-  methods:{
+  methods: {
     getList(isFirst){
-      getGoodsList().then(res=>{
+      getGoodsList().then(res => {
         let list=res.data.data||[]
-        this.list=list.map(item=>{
-          if(isFirst){
+        this.list=list.map(item => {
+          if (isFirst){
             item.isOnEdit=false
           }
           return item
@@ -63,10 +63,10 @@ export default {
       })
     },
     add(){
-      const {name,price}=this.newItem
-      if(!this.validVal(name,price)) return
-      addGoods({name,price}).then(res=>{
-        if(!res.data.code){
+      const { name,price }=this.newItem
+      if (!this.validVal(name,price)) return
+      addGoods({ name,price }).then(res => {
+        if (!res.data.code){
           this.getList()
         }
       })
@@ -78,29 +78,29 @@ export default {
       this.list[idx].isOnEdit=false
     },
     save(item,index){
-      const {id,name, price}=item 
-      if(!this.validVal(name,price)) return
-      updateGoods({id,name, price}).then(res=>{
-        if(!res.data.code){
+      const { id,name, price }=item 
+      if (!this.validVal(name,price)) return
+      updateGoods({ id,name, price }).then(res => {
+        if (!res.data.code){
           this.list[index].isOnEdit=false
         }
       })
     },
     del(item){
-      delGoods({id:item.id}).then(res=>{
-        if(!res.data.code){
+      delGoods({ id: item.id }).then(res => {
+        if (!res.data.code){
           this.getList()
         }
       })
     },
     validVal(name,price){
-      if(!name) {alert("请输入商品名称");return false}
-      if(!price) {alert("请输入商品价格");return false}
-      if(!typeof(+price)=='number' || isNaN(+price)) {alert('价格必须是数字');return false}
+      if (!name) { alert('请输入商品名称'); return false }
+      if (!price) { alert('请输入商品价格'); return false }
+      if (!typeof(+price)==='number' || isNaN(+price)) { alert('价格必须是数字'); return false }
       return true
     }
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
