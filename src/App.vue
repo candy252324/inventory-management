@@ -6,15 +6,11 @@
 
 <script>
 import List from './components/List'
-// import {example} from './api/login'
 export default {
   name: "App",
   components: {List},
-  mounted(){
-    // example().then(res=>{
-    //   console.log(res)
-    // })
-    
+  mounted(){   
+
   },
 };
 </script>

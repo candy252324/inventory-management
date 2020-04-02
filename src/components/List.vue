@@ -2,20 +2,35 @@
   <div>
     <div v-for="(item,index) in list" :key="item.id">
       <div v-if="item.isOnEdit">
-        <input type="text" v-model="item.name" placeholder="名称">
-        <input type="text" v-model="item.price" placeholder="价格">
-        <button @click="cancel(index)">取消</button>
-        <button @click="save(item,index)">保存</button>
+        <input
+          v-model="item.name"
+          type="text"
+          placeholder="名称" 
+          class="foo"
+        >
+        <input v-model="item.price" type="text" placeholder="价格">
+        <button @click="cancel(index)">
+          取消
+        </button>
+        <button @click="save(item,index)">
+          保存
+        </button>
       </div>
       <div v-else>
-        {{item.name}}:{{item.price}}
-        <button @click="edit(index)">编辑</button>
-        <button @click="del(item)">删除</button>
+        {{ item.name }}:{{ item.price }}
+        <button @click="edit(index)">
+          编辑
+        </button>
+        <button @click="del(item)">
+          删除
+        </button>
       </div>
     </div>
-    <input type="text" v-model="newItem.name" placeholder="名称">
-    <input type="text" v-model="newItem.price" placeholder="价格">
-    <button @click="add">新增</button>
+    <input v-model="newItem.name" type="text" placeholder="名称">
+    <input v-model="newItem.price" type="text" placeholder="价格">
+    <button @click="add">
+      新增
+    </button>
   </div>
 </template>
 
@@ -23,9 +38,6 @@
 import {getGoodsList,addGoods,delGoods,updateGoods} from '@/api/goods'
 export default {
   name: "HelloWorld",
-  props: {
-    msg: String
-  },
   data() {
     return {
       newItem:{
