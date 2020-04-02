@@ -70,11 +70,15 @@ module.exports = {
       "before": true,
       "after": true,
      }],
-     // 箭头函数空格配置
+    // 箭头函数空格配置
     "arrow-spacing": [1, { 
        "before": true, 
        "after": true 
-      }],
+    }],
+    // 行尾空格
+    'no-trailing-spaces': [1, { 
+      "skipBlankLines": true 
+    }],
     // 代码块空格配置
     "block-spacing": [1, "always"],
     // 代码块中是否可以为空
